@@ -13,7 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles({"test", "dev"})
 @Transactional
 public class ArticleServiceTest {
     @Autowired
@@ -52,7 +52,6 @@ public class ArticleServiceTest {
         articleService.modify(article, "수정된 제목", "수정된 내용");
 
         Article article_ = articleService.findById(1L).get();
-
         assertThat(article_.getTitle()).isEqualTo("수정된 제목");
     }
 }
