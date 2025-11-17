@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, Long> {
+public interface ArticleRepository extends JpaRepository<Article, Long>, ArticleRepositoryCustom {
     Page<Article> findByTitleContainingOrContentContaining(String kw, String kw_, Pageable pageable);
 
     Page<Article> findByTitleContaining(String kw, Pageable pageable);
